@@ -1,22 +1,21 @@
+// src/components/SearchBar.js
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, loading }) => {
   const [username, setUsername] = useState('');
-  const [loading, setLoading] = useState(false);
 
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!username.trim()) return;
     
-    setLoading(true);
-    // TODO: Implement actual search
-    console.log('Searching for:', username);
-    setTimeout(() => {
-      setLoading(false);
-      // Mock result for now
-      onSearch([{ username, solved: 150, ranking: 50000 }]);
-    }, 1000);
+    onSearch(username.trim());
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch(e);
+    }
   };
 
   return (
@@ -28,11 +27,21 @@ const SearchBar = ({ onSearch }) => {
           placeholder="Enter LeetCode username..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          onKeyPress={handleKeyPress}
           className="search-input"
+          disabled={loading}
         />
-        <button type="submit" disabled={loading} className="search-button">
+        <button 
+          type="submit" 
+          disabled={loading || !username.trim()} 
+          className="search-button"
+        >
           {loading ? 'Searching...' : 'Search'}
         </button>
+      </div>
+      
+      <div className="search-suggestions">
+        <small>Try: "test", "user123", or any username</small>
       </div>
     </form>
   );

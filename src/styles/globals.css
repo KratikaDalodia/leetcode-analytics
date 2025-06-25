@@ -141,3 +141,460 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Add this to your existing globals.css */
+
+/* Loading Spinner */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff6b35;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Search Results */
+.search-results {
+  margin-bottom: 2rem;
+}
+
+.results-section h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.user-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.no-results small {
+  color: #999;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Search suggestions */
+.search-suggestions {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.search-suggestions small {
+  color: #666;
+}
+
+/* User Card */
+.user-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-avatar {
+  background: #f0f0f0;
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin-right: 1rem;
+  color: #666;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.username {
+  margin: 0 0 0.25rem 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.user-stats-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.total-solved {
+  color: #ff6b35;
+  font-weight: 600;
+}
+
+.ranking {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.add-friend-btn {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.add-friend-btn:hover {
+  background: #e55a2b;
+}
+
+.add-friend-btn.added {
+  background: #28a745;
+  cursor: default;
+}
+
+.add-friend-btn:disabled {
+  cursor: not-allowed;
+}
+
+/* Problems Breakdown */
+.problems-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.problem-stat {
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.problem-stat.easy {
+  border-left: 4px solid #28a745;
+}
+
+.problem-stat.medium {
+  border-left: 4px solid #ffc107;
+}
+
+.problem-stat.hard {
+  border-left: 4px solid #dc3545;
+}
+
+.problem-stat .count {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.problem-stat .label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* Additional Stats */
+.additional-stats {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Friends List */
+.friends-list {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+.friends-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.friends-header h3 {
+  margin: 0;
+}
+
+.no-friends {
+  text-align: center;
+  padding: 2rem 0;
+  color: #666;
+}
+
+.no-friends small {
+  color: #999;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.friends-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.friend-item:hover {
+  background: #f8f9fa;
+}
+
+.friend-info {
+  flex: 1;
+  cursor: pointer;
+}
+
+.friend-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.friend-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.remove-friend {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.remove-friend:hover {
+  background: #f8d7da;
+}
+
+/* Friends Leaderboard */
+.friends-leaderboard {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.friends-leaderboard h4 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.top-friend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.crown {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .problems-breakdown {
+    grid-template-columns: 1fr;
+  }
+  
+  .additional-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .user-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .add-friend-btn {
+    align-self: flex-end;
+  }
+}
+/* Add this to your existing globals.css */
+
+/* Error Message */
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+  border: 1px solid #f5c6cb;
+}
+
+/* Enhanced User Card */
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.handle {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.user-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.view-profile-link {
+  cursor: pointer;
+  color: #ff6b35;
+  transition: color 0.2s;
+}
+
+.view-profile-link:hover {
+  color: #e55a2b;
+  text-decoration: underline;
+}
+
+/* Skill Tags */
+.skill-tags {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.skill-tags h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.skill-tag.more {
+  background: #f5f5f5;
+  color: #666;
+}
+
+/* Loading state improvements */
+.loading p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Responsive updates */
+@media (max-width: 768px) {
+  .user-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .user-actions {
+    align-self: flex-end;
+    width: 100%;
+  }
+  
+  .add-friend-btn {
+    width: 100%;
+  }
+  
+  .user-details {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .tags-container {
+    justify-content: flex-start;
+  }
+}
