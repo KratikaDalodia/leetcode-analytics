@@ -53,15 +53,10 @@ const USER_CONTEST_QUERY = `
 // Function to fetch user profile data
 export const fetchUserProfile = async (username) => {
   try {
-    const response = await axios.post(LEETCODE_API_URL, {
-      query: USER_PROFILE_QUERY,
-      variables: { username }
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Referer': 'https://leetcode.com'
-      }
-    });
+    const response = await axios.post('http://localhost:5000/api/leetcode/profile', {
+    username
+  });
+
 
     const data = response.data.data;
     
@@ -70,7 +65,7 @@ export const fetchUserProfile = async (username) => {
     }
 
     const user = data.matchedUser;
-    const submitStats = user.submitStats;
+    const submitStats = user.submitStatsGlobal;
     
     // Process the data into our format
     const processedData = {
@@ -110,7 +105,9 @@ export const fetchUserProfile = async (username) => {
             processedData.hardSolved = count;
             break;
         }
-        processedData.totalSolved += count;
+        const totalStat = submitStats.acSubmissionNum.find(stat => stat.difficulty === "All");
+        processedData.totalSolved = totalStat ? totalStat.count : (processedData.easySolved + processedData.mediumSolved + processedData.hardSolved);
+
       });
     }
 

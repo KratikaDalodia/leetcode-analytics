@@ -6,7 +6,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <Link to="/" className="logo">
-          <h1>LeetCode Analytics</h1>
+          <h1>LeetSync</h1>
         </Link>
         <nav className="nav">
           <Link to="/" className="nav-link">Home</Link>

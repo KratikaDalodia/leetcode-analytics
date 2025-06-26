@@ -39,8 +39,8 @@ body {
 }
 
 .logo h1 {
-  color: #ff6b35;
-  font-size: 1.5rem;
+  color: rgb(28, 28, 28);
+  font-size: 1.7rem;
 }
 
 .nav {
@@ -72,12 +72,12 @@ body {
 .hero h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #333;
+  color: #ff741e;
 }
 
 .hero p {
   font-size: 1.2rem;
-  color: #666;
+  color: #3e3e3e;
 }
 
 /* Search bar */
